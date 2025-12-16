@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
-import { ChevronRightIcon } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import HandLogo from "../icons/hand-logo";
 import LetterAnimation from "../txt-animation/letter-animation";
 import { RoutePath } from "../../config/route-config";
+import Button from "../button/Button";
 
 const Nav = () => {
+  const location = useLocation();
   return (
     <nav className="w-full z-50 border-b border-white/5 bg-[#050507]/90 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -23,13 +24,11 @@ const Nav = () => {
           </span>
         </Link>
 
-        <Link
-          to={RoutePath.ORACLE}
-          className="brand-font bg-white/5 hover:bg-yellow-900/20 border border-white/10 hover:border-yellow-600/50 text-zinc-200 hover:text-yellow-500 text-xs px-8 py-3 transition-all tracking-[0.2em] uppercase flex items-center gap-2 group"
-        >
-          <span>Розрахунок</span>
-          <ChevronRightIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        {location.pathname === RoutePath.HOME ? (
+          <Button variant="outline" type="link" to={RoutePath.ORACLE}>
+            Розрахунок
+          </Button>
+        ) : null}
       </div>
     </nav>
   );

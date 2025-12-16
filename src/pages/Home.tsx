@@ -1,8 +1,10 @@
+import FirstSection from "./home-secions/first-section";
+
 const Home = () => {
   return (
-    <div className="flex-1">
-      <main className="pt-20 text-white">Home page</main>
-    </div>
+    <main className="pt-20 text-white">
+      <FirstSection />
+    </main>
   );
 };
 
